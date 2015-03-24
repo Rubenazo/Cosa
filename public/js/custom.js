@@ -1,6 +1,15 @@
 $(document).ready(function() { 	
 	$('.jumbotron').hide();
-	$('.jumbotron').fadeIn(2500);
+	$('.jumbotron').fadeIn(1500);
+	$('#login .form-group').hide();
+	$('#login .btn').attr('type','button');
+
+	$('#login .btn').mouseup(function() {
+		$('#login .form-group').slideDown('slow', function() {
+			$('.alert').fadeOut();
+			$('#login .btn').attr('type','submit');	
+		});
+	});
 });
 
 $(document).ready(function() {
@@ -8,7 +17,6 @@ $(document).ready(function() {
 
 	$('#bancos').change(function() {
 		var id = $('#bancos option:selected').attr('value');
-		console.log(id);
 		
 		$.ajax({
 			url: '../banco',
@@ -17,14 +25,11 @@ $(document).ready(function() {
 			data: {'bancoid': id},
 			success:function(response)
 			{	
-				console.log(response['cuentas']);
 				$('#cuentas').slideUp('slow', function() { 
-					$('#cuentas tbody').empty();
-					for (var cuenta in response['cuentas'])
+					$('.table').empty();
+					for (var i in response['cuentas'])
 					{
-						$('#cuentas tbody').append('<tr>');
-						$('#cuentas tr:last').append('<td>'+ response['cuentas'][cuenta].numero +'</td>');
-						$('#cuentas tr:last').append('<td>'+ response['cuentas'][cuenta].tipo +'</td>');
+						$('.table').append('<tr> <td>' + response['cuentas'][i].numero + '</td> <td>' + response['cuentas'][i].tipo + '</td> </tr>');
 					}
 					$('#cuentas').slideDown('slow'); 
 				});

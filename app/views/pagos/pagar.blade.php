@@ -23,7 +23,7 @@
 	
 	<div id="cuentas">
 		<table class="table table-striped">
-			<tbody></tbody>
+
 		</table>		
 	</div>
 
