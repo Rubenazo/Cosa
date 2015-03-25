@@ -9,7 +9,7 @@ class RegistroController extends BaseController {
 		);
 
 		if (Auth::attempt($user)) {
-			return Redirect::to('/')->with('notice', 'Te has registrado exitosamente'); // NO APARECE EL MENSAJE
+			return Redirect::to('/')->with('notice', 'Has iniciado sesion exitosamente');
 		}
 		else {
 			return Redirect::to('/')->with('error', 'El usuario o contraseña es incorrecto')->withInput();

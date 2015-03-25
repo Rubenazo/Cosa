@@ -16,14 +16,21 @@ Route::get('/', function()
 	return View::make('inicio');
 });
 
-Route::get('usuario','UsuariosController@formusuario')->before('auth');
-Route::post('usuario','UsuariosController@crearusuario');
-
-Route::get('lista','ListaController@mostrarusuarios')->before('auth');
-
-Route::get('pago/{id}','ListaController@pagar')->before('auth');
-Route::get('banco','ListaController@seleccionar');
-
 Route::post('login','RegistroController@login');
-Route::get('logout','RegistroController@logout')->before('auth');
+
+Route::group(array('before' => 'auth'), function() {
+
+	Route::get('usuario','UsuariosController@formusuario');
+	Route::post('usuario','UsuariosController@crearusuario');
+
+	Route::get('lista','ListaController@mostrarusuarios');
+	Route::get('pago/{id}','ListaController@mostrarbancos');
+	
+	Route::get('banco','ListaController@seleccionar');
+	Route::post('banco','ListaController@pagar');
+
+	Route::get('logout','RegistroController@logout');
+});
+
+
 ?>

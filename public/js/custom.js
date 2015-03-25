@@ -1,3 +1,5 @@
+/* INICIO INICIO INICIO */
+
 $(document).ready(function() { 	
 	$('.jumbotron').hide();
 	$('.jumbotron').fadeIn(1500);
@@ -12,8 +14,14 @@ $(document).ready(function() {
 	});
 });
 
+/* PAGAR PAGAR PAGAR */
+
 $(document).ready(function() {
 	$('#cuentas').hide();
+
+	$('#cuentas input').click(function(){
+		console.log($('#cuentas input:checked').attr('value'))
+	});
 
 	$('#bancos').change(function() {
 		var id = $('#bancos option:selected').attr('value');
@@ -29,11 +37,12 @@ $(document).ready(function() {
 					$('.table').empty();
 					for (var i in response['cuentas'])
 					{
-						$('.table').append('<tr> <td>' + response['cuentas'][i].numero + '</td> <td>' + response['cuentas'][i].tipo + '</td> </tr>');
+						$('.table').append('<tr> <td>' + response['cuentas'][i].numero + '</td> <td>' + response['cuentas'][i].tipo + 
+							               '</td> <td> <input type="radio" name="cuenta" value=' + response['cuentas'][i].id + '> </td> </tr>');
 					}
 					$('#cuentas').slideDown('slow'); 
 				});
 			}
 		});
-	})
+	});
 });

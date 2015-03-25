@@ -7,7 +7,7 @@ class UsuariosController extends BaseController {
 	}
 
 	public function crearusuario() {
-		$respuesta = Usuarios::nuevousuario(Input::all());
+		$respuesta = Usuarios::nuevoUsuario(Input::all());
 		if ($respuesta['error'] == true) {
 			return Redirect::to('usuario')->witherrors($respuesta['mensaje'])->withInput();
 		}

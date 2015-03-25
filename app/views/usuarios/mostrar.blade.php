@@ -12,6 +12,9 @@
 			</li></a>
 		@endforeach
 	</div>
+	@if (Session::get('mensaje'))
+        <div class="alert alert-success">{{Session::get('mensaje')}}</div>
+    @endif
 </div>
 
 @stop

@@ -8,6 +8,9 @@
 
 <div id="login" class="row marketing">
 	@if (Auth::check())
+		@if (Session::has('notice'))
+	    	<div class="alert alert-success">{{Session::get('notice')}}</div>
+	    @endif
 		<a href="logout"><button class="btn btn-info center-block">Logout</button></a> <!-- PONER EL BOTON BIEN -->
 	@else
 		{{ Form::open(array('url' => 'login')) }}
@@ -17,7 +20,7 @@
 			</div>
 			
 			<div class="form-group">
-			{{ Form::text('contraseña','',array('class'=>'form-control', 'placeholder'=>'Contraseña', 'autocomplete'=>'off')) }}
+			{{ Form::password('contraseña',array('class'=>'form-control', 'placeholder'=>'Contraseña', 'autocomplete'=>'off')) }}           
 			</div>
 
 			@if (Session::has('error'))
