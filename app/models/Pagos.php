@@ -7,10 +7,11 @@ class Pagos extends Eloquent {
 		$respuesta = array();
 
 		$reglas = array(
-			'transferencia'   => 'required',
-			'monto' => 'required',
-			'bantrans_id' => 'required',
-			'banco_id'   => 'required',
+			'transferencia' => 'required',
+			'monto'         => 'required',
+			'bantrans_id'   => 'required',
+			'banco_id'      => 'required',
+			'num_cuenta_id' => 'required'
 		);
 
 		$validator = Validator::make($input,$reglas);
