@@ -22,7 +22,7 @@ class ListaController extends BaseController {
 	public function pagar() {
 		$respuesta = Pagos::nuevoPago(Input::all());
 		if ($respuesta['error'] == true) {
-			return Redirect::to('/')->witherrors($respuesta['mensaje'])->withInput();
+			return Redirect::back()->witherrors($respuesta['mensaje'])->withInput();
 		}
 		else {
 			return Redirect::to('lista')->with('mensaje', $respuesta['mensaje']);

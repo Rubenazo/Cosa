@@ -18,7 +18,7 @@
 
         @if( $errors->has('nombre') )
             <div class="alert alert-danger">
-            @foreach($errors->get('nombre') as $error )
+            @foreach($errors->get('nombre') as $error)
                 * {{ $error }}</br>
             @endforeach
             </div>
@@ -32,7 +32,7 @@
 
 		@if( $errors->has('apellido') )
             <div class="alert alert-danger">
-            @foreach($errors->get('apellido') as $error )
+            @foreach($errors->get('apellido') as $error)
                 * {{ $error }}</br>
             @endforeach
             </div>
@@ -46,7 +46,7 @@
 
 		@if( $errors->has('correo') )
             <div class="alert alert-danger">
-            @foreach($errors->get('correo') as $error )
+            @foreach($errors->get('correo') as $error)
                 * {{ $error }}</br>
             @endforeach
             </div>
@@ -60,7 +60,7 @@
 
 		@if( $errors->has('zona') )
             <div class="alert alert-danger">
-            @foreach($errors->get('zona') as $error )
+            @foreach($errors->get('zona') as $error)
                 * {{ $error }}</br>
             @endforeach
             </div>

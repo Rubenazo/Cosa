@@ -5,7 +5,7 @@
 <div class="jumbotron">
 	<h1>Cosa</h1>
 </div>
-       	
+
 <div id="login" class="row marketing">
 	@if (Auth::check())
 		@if (Session::has('notice'))

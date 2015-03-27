@@ -10,43 +10,88 @@
 	<div class="panel list-group-item col-xs-5" style="background-color:#E5E5E5">{{ $plan->precio }}Bs</div>
 
 	{{ Form::open(array('url' => 'banco')) }}
-		
-		<div class="form-group col-xs-6">
-			{{ Form::label('bantrans','Seleccione el banco desde el que transfiere') }}
-			<select id="bantrans" class="form-control" name="bantrans_id">
-			    <option value="" disabled selected style="display:none">Seleccione</option>
-				@foreach($bancos as $banco)
-					<option value="{{$banco->id}}"> {{ $banco->descripcion }} </option>
-				@endforeach
-			</select>
-		</div>
 
-		<div class="form-group col-xs-6">
-			{{ Form::label('bancos','Seleccione el banco al que quiere transferir') }}
-			<select id="bancos" class="form-control" name="banco_id">
-			    <option value="" disabled selected style="display:none">Seleccione</option>
-				@foreach($bancos as $banco)
-					<option value="{{$banco->id}}"> {{ $banco->descripcion }} </option>
-				@endforeach
-			</select>
-		</div>
+		<!-- LISTA DE BANCOS DESDE DONDE SE HACE LA TRANSFERENCIA -->
+		
+		@if( $errors->has('bantrans_id') )
+			<div class="form-group col-xs-6 has-error">
+		@else
+			<div class="form-group col-xs-6">
+		@endif
+				{{ Form::label('bantrans','Seleccione el banco desde el que transfiere') }}
+				<select id="bantrans" class="form-control" name="bantrans_id">
+				    <option value="" disabled selected style="display:none">Seleccione</option>
+					@foreach($bancos as $banco)
+						<option value="{{$banco->id}}"> {{ $banco->descripcion }} </option>
+					@endforeach
+				</select>
+				@if( $errors->has('bantrans_id') )
+					<span class="help-block"> @foreach($errors->get('bantrans_id') as $error) * {{ $error }} @endforeach</span>
+				@endif	
+			</div>
+
+		<!-- LISTA DE BANCOS A DONDE SE HACE LA TRANSFERENCIA -->
+
+		@if( $errors->has('banco_id') )
+			<div class="form-group col-xs-6 has-error">
+		@else
+			<div class="form-group col-xs-6">
+		@endif	
+				{{ Form::label('bancos','Seleccione el banco al que quiere transferir') }}
+				<select id="bancos" class="form-control" name="banco_id">
+				    <option value="" disabled selected style="display:none">Seleccione</option>
+					@foreach($bancos as $banco)
+						<option value="{{$banco->id}}"> {{ $banco->descripcion }} </option>
+					@endforeach
+				</select>
+				@if( $errors->has('banco_id') )
+					<span class="help-block"> @foreach($errors->get('banco_id') as $error) * {{ $error }} @endforeach</span>
+				@endif	
+			</div>
+
+		<!-- TABLA DE CUENTAS -->
 
 		<div id="cuentas" class="form-group">
 			<table class="table table-striped">
 
-			</table>		
+			</table>	
+			@if( $errors->has('num_cuenta_id') )
+				<div class="alert alert-danger"> @foreach($errors->get('num_cuenta_id') as $error) * {{ $error }} @endforeach</div>
+			@endif	
 		</div>
 		
-		<div id="transferencia" class="form-group">
-			<div class="form-group col-xs-6">
-				{{ Form::label('transferencia','Numero de Transferencia') }}
-				{{ Form::text('transferencia',Input::old('transferencia'),array('class'=>'form-control',                                       			 'placeholder'=>'Numero', 'autocomplete'=>'off')) }}
-			</div>
+		
 
-			<div class="form-group col-xs-6">
-				{{ Form::label('monto','Monto de Transferencia') }}
-				{{ Form::text('monto',Input::old('monto'),array('class'=>'form-control', 'placeholder'=>'Monto', 'autocomplete'=>'off')) }}
-			</div>
+		<div id="transferencia" class="form-group">
+		
+			<!-- CAMPO TRANSFERENCIA -->
+
+			@if( $errors->has('transferencia') )
+				<div class="form-group col-xs-6 has-error">
+			@else
+				<div class="form-group col-xs-6">
+			@endif
+					{{ Form::label('transferencia','Numero de Transferencia') }}
+					{{ Form::text('transferencia',Input::old('transferencia'),array('class'=>'form-control',   			 	       					  'placeholder'=>'Numero', 'autocomplete'=>'off')) }}
+					@if( $errors->has('transferencia') )
+						<span class="help-block"> @foreach($errors->get('transferencia') as $error) * {{ $error }} @endforeach</span>
+					@endif
+				</div>
+
+			<!-- CAMPO MONTO -->
+
+			@if( $errors->has('monto') )
+				<div class="form-group col-xs-6 has-error">
+			@else
+				<div class="form-group col-xs-6">
+			@endif		
+					{{ Form::label('monto','Monto de Transferencia') }}
+					{{ Form::text('monto',Input::old('monto'),array('class'=>'form-control', 'placeholder'=>'Monto', 'autocomplete'=>'off')) }}
+					@if( $errors->has('transferencia') )
+						<span class="help-block"> @foreach($errors->get('monto') as $error) * {{ $error }} @endforeach</span>
+					@endif
+				</div>
+		
 		</div>
 
 		<input name="usuario_id" type="text" value="{{$datos->id}}" style="display:none">
