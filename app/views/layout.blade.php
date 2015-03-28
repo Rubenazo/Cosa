@@ -28,9 +28,11 @@
 
 			<div class="footer">
 				@if (Auth::check())
-					<h4 class="text-muted text-left">Bienvenido {{Auth::user()->username}}</h4>	
-				@endif									   <!-- MOSTRAR LOS DOS EN LA MISMA LINEA -->
-				<h3 class="text-muted text-right">Cosa</h3>
+					<h4 class="text-muted text-left col-xs-6" style="margin:0">Bienvenido {{Auth::user()->username}}</h4>	
+					<h3 class="text-muted text-right col-xs-6" style="margin:0">Cosa</h3>
+				@else
+					<h3 class="text-muted text-right">Cosa</h3>
+				@endif
 			<div>
 
 		</div>

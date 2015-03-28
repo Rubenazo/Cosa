@@ -11,7 +11,7 @@
 		@if (Session::has('notice'))
 	    	<div class="alert alert-success">{{Session::get('notice')}}</div>
 	    @endif
-		<a href="logout"><button class="btn btn-info center-block">Logout</button></a> <!-- PONER EL BOTON BIEN -->
+		<a class="btn btn-info center-block" href="logout" style="width:10%">Logout</a>
 	@else
 		{{ Form::open(array('url' => 'login')) }}
 			
