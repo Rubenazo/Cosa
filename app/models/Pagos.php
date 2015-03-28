@@ -7,8 +7,8 @@ class Pagos extends Eloquent {
 		$respuesta = array();
 
 		$reglas = array(
-			'transferencia' => array('required','numeric'),
-			'monto'         => array('required','numeric'),
+			'transferencia' => 'required | numeric',
+			'monto'         => 'required | numeric',
 			'bantrans_id'   => 'required',
 			'banco_id'      => 'required',
 			'num_cuenta_id' => 'required'

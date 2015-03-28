@@ -11,7 +11,8 @@ class ListaController extends BaseController {
 		$planid  = $datos->plan_id;
 		$plan    = Planes::find($planid);
 		$bancos  = Bancos::all();
-		return View::make('pagos.pagar', array('datos' => $datos, 'plan' => $plan, 'bancos' => $bancos));
+		$pagos   = Pagos::where('usuario_id','=',$id)->orderBy('monto','descend')->groupBy('banco_id')->get();
+		return View::make('pagos.pagar', array('datos' => $datos, 'plan' => $plan, 'bancos' => $bancos, 'pagos' => $pagos));
 	}
 
 	public function seleccionar() {
@@ -25,7 +26,7 @@ class ListaController extends BaseController {
 			return Redirect::back()->witherrors($respuesta['mensaje'])->withInput();
 		}
 		else {
-			return Redirect::to('lista')->with('mensaje', $respuesta['mensaje']);
+			return Redirect::back()->with('mensaje', $respuesta['mensaje']);
 		} 
 	}
 }

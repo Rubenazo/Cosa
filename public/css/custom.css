@@ -1,3 +1,7 @@
 .jumbotron, .nav li a:hover { 
 	background-color: #7ED3FF;
 }
+
+#alternar .alert {
+	margin-top: 21px;
+}

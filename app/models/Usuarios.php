@@ -9,7 +9,7 @@ class Usuarios extends Eloquent {
 		$reglas = array(
 			'nombre'   => 'required',
 			'apellido' => 'required',
-			'correo'   => array('required','email'),
+			'correo'   => 'required | email',
 			'zona'     => 'required'
 		);
 
