@@ -139,12 +139,12 @@
 	  				@foreach($pagos as $pago)
 		  				<tr>
 		  					<td>{{ $banco::find($pago->banco_id)->descripcion }}</td>
-		  					<td>{{ $pago->monto }}</td>
+		  					<td>{{ $pago->total }} Bs</td>
 		  				</tr>
 		  			@endforeach
 		  			<tr>
 		  				<td>Total</td>
-		  				<td>{{$pagos->sum('monto')}}</td>
+		  				<td>{{$pagos->sum('total')}} Bs</td>
 		  			</tr>
 	  			</table>
 	  		@else

@@ -11,7 +11,7 @@ class ListaController extends BaseController {
 		$planid  = $datos->plan_id;
 		$plan    = Planes::find($planid);
 		$bancos  = Bancos::all();
-		$pagos   = Pagos::where('usuario_id','=',$id)->orderBy('monto','descend')->groupBy('banco_id')->get();
+		$pagos   = Pagos::select('banco_id', DB::raw('SUM(monto) as total'))->where('usuario_id','=',$id)->orderBy('monto','desc')->groupBy('banco_id')->get();
 		return View::make('pagos.pagar', array('datos' => $datos, 'plan' => $plan, 'bancos' => $bancos, 'pagos' => $pagos));
 	}
 
