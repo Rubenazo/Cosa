@@ -1,6 +1,22 @@
 <?php
 
 return array(
+  "driver" => "smtp",
+  "host" => "mailtrap.io",
+  "port" => 2525,
+  "from" => array(
+      "address" => "from@exampe.com",
+      "name" => "Example"
+  ),
+  "username" => "3301997099cc7c5da",
+  "password" => "9abe2a6612182d",
+  "sendmail" => "/usr/sbin/sendmail -bs",
+  "pretend" => false
+);
+
+
+
+//return array(
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,7 +31,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'smtp',
+//	'driver' => 'smtp',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +44,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.mailgun.org',
+//	'host' => 'smtp.mailgun.org',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +57,7 @@ return array(
 	|
 	*/
 
-	'port' => 587,
+//	'port' => 587,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +70,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+//	'from' => array('address' => null, 'name' => null),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +83,7 @@ return array(
 	|
 	*/
 
-	'encryption' => 'tls',
+//	'encryption' => 'tls',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +96,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+//	'username' => null,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +109,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+//	'password' => null,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -106,7 +122,7 @@ return array(
 	|
 	*/
 
-	'sendmail' => '/usr/sbin/sendmail -bs',
+//	'sendmail' => '/usr/sbin/sendmail -bs',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -119,6 +135,6 @@ return array(
 	|
 	*/
 
-	'pretend' => false,
+//	'pretend' => false,
 
-);
+//);

@@ -14,6 +14,32 @@ $(document).ready(function() {
 	});
 });
 
+/* CREAR CREAR CREAR */
+
+$(document).ready(function() { 	
+	$('#botoncrear').mouseup(function() {
+		$('#botoncrear').after('<button class="btn btn-warning center-block"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Cargando...</button>');
+		$('#botoncrear').hide();
+	});
+});
+
+/* USUARIOS USUARIOS USUARIOS */
+
+$(document).ready(function() { 
+	$('#buscar').keyup(function() {
+		var busqueda = $(this).val();
+		if (busqueda != '')
+		{	
+			$('a').hide();
+			$('a:contains("'+busqueda+'")').show();
+		}
+		else
+		{
+			$('a').show();
+		}
+	});
+});
+
 /* PAGAR PAGAR PAGAR */
 
 $(document).ready(function() {

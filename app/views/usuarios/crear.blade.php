@@ -10,61 +10,57 @@
         	<div class="alert alert-success">{{Session::get('mensaje')}}</div>
         @endif
 
-		<div class="form-group">
-			{{ Form::label('nombre','Nombre') }}
-			{{ Form::text('nombre',Input::old('nombre'), 
-				array('class'=>'form-control', 'placeholder'=>'nombre usuario', 'autocomplete'=>'off')) }}
-		</div>
-
         @if( $errors->has('nombre') )
-            <div class="alert alert-danger">
-            @foreach($errors->get('nombre') as $error)
-                * {{ $error }}</br>
-            @endforeach
-            </div>
-        @endif		
+        	<div class="form-group has-error">
+        @else
+			<div class="form-group">
+		@endif
+				{{ Form::label('nombre','Nombre') }}
+				{{ Form::text('nombre', Input::old('nombre'), array('class'=>'form-control', 'placeholder'=>'nombre usuario', 'autocomplete'=>'off')) }}
+		        @if( $errors->has('nombre') )
+		            <span class="help-block"> @foreach($errors->get('nombre') as $error) * {{ $error }} @endforeach </span>
+		        @endif
+			</div>
 
-		<div class="form-group">
-			{{ Form::label('apellido','Apellido') }}
-			{{ Form::text('apellido',Input::old('apellido'), 
-				array('class'=>'form-control', 'placeholder'=>'apellido usuario', 'autocomplete'=>'off')) }}
-		</div>
 
 		@if( $errors->has('apellido') )
-            <div class="alert alert-danger">
-            @foreach($errors->get('apellido') as $error)
-                * {{ $error }}</br>
-            @endforeach
-            </div>
-        @endif	
+        	<div class="form-group has-error">
+        @else
+			<div class="form-group">
+		@endif
+				{{ Form::label('apellido','Apellido') }}
+				{{ Form::text('apellido', Input::old('apellido'), array('class'=>'form-control', 'placeholder'=>'apellido usuario', 'autocomplete'=>'off')) }}
+				@if( $errors->has('apellido') )	
+					<span class="help-block"> @foreach($errors->get('apellido') as $error) * {{ $error }} @endforeach </span>
+				@endif
+			</div>
 
-		<div class="form-group">
-			{{ Form::label('correo','Correo') }}
-			{{ Form::text('correo',Input::old('correo'), 
-				array('class'=>'form-control', 'placeholder'=>'correo usuario', 'autocomplete'=>'off')) }}
-		</div>
 
 		@if( $errors->has('correo') )
-            <div class="alert alert-danger">
-            @foreach($errors->get('correo') as $error)
-                * {{ $error }}</br>
-            @endforeach
-            </div>
-        @endif	
+			<div class="form-group has-error">
+		@else
+			<div class="form-group">
+		@endif
+				{{ Form::label('correo','Correo') }}
+				{{ Form::text('correo', Input::old('correo'), array('class'=>'form-control', 'placeholder'=>'correo usuario', 'autocomplete'=>'off')) }}
+				@if( $errors->has('correo') )
+					<span class="help-block"> @foreach($errors->get('correo') as $error) * {{ $error }} @endforeach </span>
+				@endif	
+			</div>
 
-		<div class="form-group">
-			{{ Form::label('zona','Zona') }}
-			{{ Form::text('zona',Input::old('zona'), 
-				array('class'=>'form-control', 'placeholder'=>'zona usuario', 'autocomplete'=>'off')) }}
-		</div>
 
 		@if( $errors->has('zona') )
-            <div class="alert alert-danger">
-            @foreach($errors->get('zona') as $error)
-                * {{ $error }}</br>
-            @endforeach
-            </div>
-        @endif	
+			<div class="form-group has-error">
+		@else
+			<div class="form-group">
+		@endif
+				{{ Form::label('zona','Zona') }}
+				{{ Form::text('zona', Input::old('zona'), array('class'=>'form-control', 'placeholder'=>'zona usuario', 'autocomplete'=>'off')) }}
+				@if( $errors->has('zona') )
+					<span class="help-block"> @foreach($errors->get('zona') as $error) * {{ $error }} @endforeach </span>
+				@endif
+			</div>
+				
 
 		<div class="form-group">
 			{{ Form::label('plan','Plan') }}
@@ -75,7 +71,7 @@
 			</select>
 		</div>
 
-		{{ Form::submit('Guardar',array('class'=>'btn btn-success'))}}
+		{{ Form::submit('Guardar',array('class'=>'btn btn-success center-block', 'id'=>'botoncrear'))}}
 	{{ Form::close() }}
 </div>
 

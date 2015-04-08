@@ -12,6 +12,11 @@ class UsuariosController extends BaseController {
 			return Redirect::to('usuario')->witherrors($respuesta['mensaje'])->withInput();
 		}
 		else {
+			Mail::send('emails.usuariocreado', array('nombre'=>Input::get('nombre'),'apellido'=>Input::get('apellido')), function($message)
+			{
+				$message->from(Input::get('correo'), Input::get('nombre').' '.Input::get('apellido'));
+				$message->to('from@exampe.com', 'Example')->subject('Nuevo Usuario Creado');
+			});
 			return Redirect::to('usuario')->with('mensaje', $respuesta['mensaje']);
 		}
 	}
