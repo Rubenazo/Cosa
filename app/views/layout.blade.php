@@ -17,8 +17,24 @@
 				@if (Auth::check())
 					<ul class="nav nav-pills pull-right">
 						<li>{{ HTML::link('/','Inicio') }}</li>
-						<li>{{ HTML::link('usuario','Crear Usuario') }}</li>
-						<li>{{ HTML::link('lista','Mostrar Usuarios') }}</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          						Crear
+        					</a>
+							<ul class="dropdown-menu">
+								<li>{{ HTML::link('usuario','Crear Usuario') }}</li>
+								<li>{{ HTML::link('banco','Crear Banco') }}</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          						Mostrar
+        					</a>
+        					<ul class="dropdown-menu">
+								<li>{{ HTML::link('lista','Mostrar Usuarios') }}</li>
+								<li>{{ HTML::link('listaban','Mostrar Bancos') }}</li>
+							</ul>
+						</li>
 					</ul>
 				@endif
 				<h3 class="text-muted">Cosa</h3>

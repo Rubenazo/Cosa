@@ -1,16 +1,17 @@
 <?php
 class Usuarios extends Eloquent {
 	protected $table    = 'usuarios';
-	protected $fillable = array('nombre','apellido','correo','zona','plan_id');
+	protected $fillable = array('nombre','apellido','correo','zona','plan_id','fecha_corte');
 
 	public static function nuevoUsuario($input) {
 		$respuesta = array();
 
 		$reglas = array(
-			'nombre'   => 'required',
-			'apellido' => 'required',
-			'correo'   => 'required | email',
-			'zona'     => 'required'
+			'nombre'      => 'required',
+			'apellido'    => 'required',
+			'correo'      => 'required | email',
+			'zona'        => 'required',
+			'fecha_corte' => 'required'
 		);
 
 		$validator = Validator::make($input,$reglas);

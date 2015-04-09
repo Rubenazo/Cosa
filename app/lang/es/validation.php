@@ -103,6 +103,8 @@ return array(
 		'bantrans_id'   => 'banco',
 		'banco_id'      => 'banco',
 		'num_cuenta_id' => 'cuenta',
+		'fecha_corte'   => 'fecha de corte',
+		'numero'        => 'numero de cuenta',
 		),
 
 );

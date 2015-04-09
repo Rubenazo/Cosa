@@ -14,10 +14,20 @@
     }
 }
 
-.jumbotron, .nav li a:hover { 
+.jumbotron, .nav li a:hover, .nav li.open a.dropdown-toggle { 
 	background-color: #7ED3FF;
+}
+
+li.open .dropdown-menu a:hover {
+  background-color: #F5F5F5;
 }
 
 #alternar .alert {
 	margin-top: 21px;
+}
+
+.form-group .panel-default, .form-group span.alert-danger {
+  display:inline; 
+  padding: 3px 15px;
+  margin-left: 15px;
 }

@@ -71,6 +71,22 @@
 			</select>
 		</div>
 
+		<div class="form-group" style="margin-top:20px">
+			{{ Form::label('fecha_corte','Fecha de Corte') }}
+			<div class="panel panel-default">
+				<label class="radio-inline">
+					{{ Form::radio('fecha_corte','1') }} 1
+				</label>
+				<label class="radio-inline">
+					{{ Form::radio('fecha_corte','15') }} 15
+				</label>
+			</div>
+			@if( $errors->has('fecha_corte') )
+				<span class="alert alert-danger"> @foreach($errors->get('fecha_corte') as $error) * {{ $error }} @endforeach</span>
+			@endif
+		</div>
+
+
 		{{ Form::submit('Guardar',array('class'=>'btn btn-success center-block', 'id'=>'botoncrear'))}}
 	{{ Form::close() }}
 </div>

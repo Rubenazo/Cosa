@@ -1,5 +1,4 @@
 <?php
-
 class RegistroController extends BaseController {
 	
 	public function login() {
@@ -21,4 +20,3 @@ class RegistroController extends BaseController {
     	return Redirect::to('/')->with('notice', 'Su perfil se ha cerrado');
     }
 }
-?>

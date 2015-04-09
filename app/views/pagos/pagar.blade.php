@@ -29,7 +29,7 @@
 	<div class="collapse" id="formpago">
   		<div class="well">
 
-			{{ Form::open(array('url' => 'banco')) }}
+			{{ Form::open(array('url' => 'formupago')) }}
 
 				<div class="form-group">
 

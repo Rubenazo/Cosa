@@ -26,8 +26,15 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('lista','ListaController@mostrarusuarios');
 	Route::get('pago/{id}','ListaController@mostrarbancos');
 	
-	Route::get('banco','ListaController@seleccionar');
-	Route::post('banco','ListaController@pagar');
+	Route::get('formupago','ListaController@seleccionar');
+	Route::post('formupago','ListaController@pagar');
+
+	Route::get('banco','BancosController@formubanco');
+	Route::post('banco','BancosController@crearbanco');
+	Route::post('cuenta','BancosController@crearcuenta');
+
+	Route::get('listaban','ListabanController@mostrarbancos');
+	Route::get('pagoban/{id}','ListabanController@mostrarpagos');
 
 	Route::get('logout','RegistroController@logout');
 });

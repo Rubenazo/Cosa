@@ -14,7 +14,7 @@ $(document).ready(function() {
 	});
 });
 
-/* CREAR CREAR CREAR */
+/* CREAR USUARIO CREAR USUARIO CREAR USUARIO */
 
 $(document).ready(function() { 	
 	$('#botoncrear').mouseup(function() {
@@ -22,6 +22,17 @@ $(document).ready(function() {
 		$('#botoncrear').hide();
 	});
 });
+
+/* CREAR BANCO CREAR BANCO CREAR BANCO */
+
+$(document).ready(function() { 	
+	$('#btncuenta').mouseup(function() {
+		if ($('#crearban').attr('aria-expanded') == 'true')
+			$('#crearban').collapse('hide');
+		if ($('#agcuenta').attr('aria-expanded') == 'true')
+			$('#crearban').collapse('show');
+	});
+});	
 
 /* USUARIOS USUARIOS USUARIOS */
 
@@ -59,7 +70,7 @@ $(document).ready(function() {
 		var id = $('#bancos option:selected').attr('value');
 		
 		$.ajax({
-			url: '../banco',
+			url: '../formupago',
 			type: 'GET',
 			dataType: 'json',
 			data: {'bancoid': id},
