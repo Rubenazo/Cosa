@@ -36,6 +36,8 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('listaban','ListabanController@mostrarbancos');
 	Route::get('pagoban/{id}','ListabanController@mostrarpagos');
 
+	Route::get('buscador','BuscadorController@mostrarbuscador');
+
 	Route::get('logout','RegistroController@logout');
 });
 

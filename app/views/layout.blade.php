@@ -35,6 +35,7 @@
 								<li>{{ HTML::link('listaban','Mostrar Bancos') }}</li>
 							</ul>
 						</li>
+						<li>{{ HTML::link('buscador','Buscador') }}</li>
 					</ul>
 				@endif
 				<h3 class="text-muted">Cosa</h3>

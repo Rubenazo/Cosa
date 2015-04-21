@@ -34,19 +34,19 @@ $(document).ready(function() {
 	});
 });	
 
-/* USUARIOS USUARIOS USUARIOS */
+/* MOSTRAR MOSTRAR MOSTRAR */
 
 $(document).ready(function() { 
 	$('#buscar').keyup(function() {
 		var busqueda = $(this).val();
 		if (busqueda != '')
 		{	
-			$('a').hide();
-			$('a:contains("'+busqueda+'")').show();
+			$('.panel a').hide();
+			$('.panel a:contains("'+busqueda+'")').show();
 		}
 		else
 		{
-			$('a').show();
+			$('.panel a').show();
 		}
 	});
 });
@@ -87,5 +87,34 @@ $(document).ready(function() {
 				});
 			}
 		});
+	});
+});
+
+/* BUSCADOR BUSCADOR BUSCADOR */
+
+$(document).ready(function() {
+	var filtro = [];
+	$('#busqueda').hide();
+	$('#filtros label').mouseup(function() {
+		if ($(this).attr('aria-pressed') == 'false')
+		{	
+			$(this).attr('aria-pressed','true');
+			filtro.push($(this).children().attr('value'));
+		}
+		else
+		{
+			$(this).attr('aria-pressed','false');
+			pos = filtro.indexOf($(this).children().attr('value'));
+			filtro.splice(pos, 1);
+		}
+		if (filtro[0] == null)
+		{
+			$('#busqueda').slideUp('slow');
+		}
+		else
+		{
+				$('#busqueda').slideUp('slow');
+				$('#busqueda').slideDown('slow');
+		}
 	});
 });
